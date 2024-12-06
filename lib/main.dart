@@ -1,15 +1,19 @@
 import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
 import 'package:to_do_app/home/home_screen.dart';
 import 'package:to_do_app/home/task_list/edit_task_item.dart';
 import 'package:to_do_app/my_theme_data.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:provider/provider.dart';
-import 'package:to_do_app/providers/app_config_provider_theme.dart';
 import 'package:to_do_app/providers/app_config_provider.dart';
+import 'package:to_do_app/providers/app_config_provider_theme.dart';
 import 'package:to_do_app/providers/list_provider.dart';
+
+import 'auth/login/login_screen.dart';
+import 'auth/register/register_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -41,10 +45,12 @@ class MyApp extends StatelessWidget {
     var providerTheme = Provider.of<AppConfigProviderTheme>(context);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: HomeScreen.routeName,
+      initialRoute: LoginScreen.routeName,
       routes: {
         HomeScreen.routeName: (context) => HomeScreen(),
         EditTaskItem.routeName: (context) => EditTaskItem(),
+        RegisterScreen.routeName: (context) => RegisterScreen(),
+        LoginScreen.routeName: (context) => LoginScreen(),
       },
       theme: MyThemeData.lightTheme,
       darkTheme: MyThemeData.darkTheme,

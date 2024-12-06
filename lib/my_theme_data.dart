@@ -6,16 +6,18 @@ class MyThemeData {
   static final ThemeData lightTheme = ThemeData(
     primaryColor: AppColors.primaryColor,
     scaffoldBackgroundColor: AppColors.backgroundLightColor,
-    appBarTheme: AppBarTheme(
+    appBarTheme: const AppBarTheme(
       elevation: 0,
       backgroundColor: AppColors.primaryColor,
+      iconTheme: IconThemeData(color: AppColors.whiteColor),
+      titleSpacing: 0.01,
     ),
-    bottomSheetTheme: BottomSheetThemeData(
+    bottomSheetTheme: const BottomSheetThemeData(
         backgroundColor: AppColors.backgroundLightColor,
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(15), topRight: Radius.circular(15)))),
-    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
         // selectedLabelStyle: TextStyle(fontSize: 20),
         // unselectedLabelStyle: TextStyle(fontSize: 20),
         selectedItemColor: AppColors.primaryColor,
@@ -23,7 +25,7 @@ class MyThemeData {
         showUnselectedLabels: false,
         backgroundColor: Colors.transparent,
         elevation: 0),
-    floatingActionButtonTheme: FloatingActionButtonThemeData(
+    floatingActionButtonTheme: const FloatingActionButtonThemeData(
       backgroundColor: AppColors.primaryColor,
     ),
     textTheme: TextTheme(
@@ -48,16 +50,16 @@ class MyThemeData {
   static final ThemeData darkTheme = ThemeData(
     primaryColor: AppColors.primaryColor,
     scaffoldBackgroundColor: AppColors.blackColor,
-    appBarTheme: AppBarTheme(
+    appBarTheme: const AppBarTheme(
       elevation: 0,
       backgroundColor: AppColors.primaryColor,
     ),
-    bottomSheetTheme: BottomSheetThemeData(
+    bottomSheetTheme: const BottomSheetThemeData(
         backgroundColor: AppColors.blackColor,
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(15), topRight: Radius.circular(15)))),
-    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
         // selectedLabelStyle: TextStyle(fontSize: 20),
         // unselectedLabelStyle: TextStyle(fontSize: 20),
         selectedItemColor: AppColors.primaryColor,
@@ -65,7 +67,7 @@ class MyThemeData {
         showUnselectedLabels: false,
         backgroundColor: Colors.transparent,
         elevation: 0),
-    floatingActionButtonTheme: FloatingActionButtonThemeData(
+    floatingActionButtonTheme: const FloatingActionButtonThemeData(
       backgroundColor: AppColors.primaryColor,
     ),
     textTheme: TextTheme(

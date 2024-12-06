@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
 import 'package:to_do_app/app_colors.dart';
+
 import '../../providers/app_config_provider.dart';
 import '../../providers/app_config_provider_theme.dart';
-import 'package:provider/provider.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class LanguageBottomSheet extends StatelessWidget {
   var providerTheme;
-
+  var providerLanguage;
   @override
   Widget build(BuildContext context) {
-    var providerLanguage = Provider.of<AppConfigProvider>(context);
+    providerLanguage = Provider.of<AppConfigProvider>(context);
     providerTheme = Provider.of<AppConfigProviderTheme>(context);
     return Container(
-        padding: EdgeInsets.all(20),
+        padding: const EdgeInsets.all(20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
@@ -26,7 +27,7 @@ class LanguageBottomSheet extends StatelessWidget {
                         AppLocalizations.of(context)!.english, context)
                     : getUnSelectedItemWidget(
                         AppLocalizations.of(context)!.english, context)),
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
             InkWell(
@@ -46,14 +47,24 @@ class LanguageBottomSheet extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(
+        !providerTheme.isDarkMode()
+            ? Text(
           text,
-          style: Theme.of(context)
+          style: Theme
+              .of(context)
               .textTheme
               .bodyLarge!
               .copyWith(color: AppColors.blackDarkColor),
+        )
+            : Text(
+          text,
+          style: Theme
+              .of(context)
+              .textTheme
+              .bodyLarge!
+              .copyWith(color: AppColors.whiteColor),
         ),
-        Icon(
+        const Icon(
           Icons.check,
           color: AppColors.primaryColor,
           size: 30,
@@ -63,12 +74,22 @@ class LanguageBottomSheet extends StatelessWidget {
   }
 
   Widget getUnSelectedItemWidget(String text, BuildContext context) {
-    return Text(
+    return !providerTheme.isDarkMode()
+        ? Text(
       text,
-      style: Theme.of(context)
+      style: Theme
+          .of(context)
           .textTheme
           .bodyLarge!
           .copyWith(color: AppColors.blackDarkColor),
+    )
+        : Text(
+      text,
+      style: Theme
+          .of(context)
+          .textTheme
+          .bodyLarge!
+          .copyWith(color: AppColors.whiteColor),
     );
   }
 }

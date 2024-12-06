@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
+
 import '../../app_colors.dart';
 import '../../providers/app_config_provider.dart';
 
@@ -11,7 +12,7 @@ class ThemeBottomSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     providerTheme = Provider.of<AppConfigProviderTheme>(context);
     return Container(
-        padding: EdgeInsets.all(20),
+        padding: const EdgeInsets.all(20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
@@ -24,7 +25,7 @@ class ThemeBottomSheet extends StatelessWidget {
                         AppLocalizations.of(context)!.light, context)
                     : getUnSelectedItemWidget(
                         AppLocalizations.of(context)!.light, context)),
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
             InkWell(
@@ -59,7 +60,7 @@ class ThemeBottomSheet extends StatelessWidget {
                     .bodyLarge!
                     .copyWith(color: AppColors.whiteColor),
               ),
-        Icon(
+        const Icon(
           Icons.check,
           color: AppColors.primaryColor,
           size: 30,

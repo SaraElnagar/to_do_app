@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:to_do_app/app_colors.dart';
 import 'package:provider/provider.dart';
+import 'package:to_do_app/app_colors.dart';
 import 'package:to_do_app/firebase_utils.dart';
 import 'package:to_do_app/providers/app_config_provider.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:to_do_app/providers/list_provider.dart';
+
 import '../../model/task.dart';
 import 'edit_task_item.dart';
 
@@ -30,7 +31,7 @@ class _TaskListItemState extends State<TaskListItem> {
     width = MediaQuery.of(context).size.width;
 
     return Container(
-      margin: EdgeInsets.all(12),
+      margin: const EdgeInsets.all(12),
       child: Slidable(
         // The start action pane is the one at the left or the top side.
         startActionPane: ActionPane(
@@ -41,15 +42,15 @@ class _TaskListItemState extends State<TaskListItem> {
           children: [
             // A SlidableAction can have an icon and/or a label.
             SlidableAction(
-              borderRadius: BorderRadius.only(
+              borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(25),
                 bottomLeft: Radius.circular(25),
               ),
               onPressed: (context) {
                 ///delete task
                 FirebaseUtils.deleteTaskToFireStore(widget.task)
-                    .timeout(Duration(seconds: 1), onTimeout: () {
-                  print("task deleted successfully");
+                    .timeout(const Duration(seconds: 1), onTimeout: () {
+                  // print("task deleted successfully");
                   listProvider.getAllTasksFromFireStore();
                 });
               },
@@ -70,7 +71,7 @@ class _TaskListItemState extends State<TaskListItem> {
             null;
           },
           child: Container(
-              padding: EdgeInsets.all(12),
+              padding: const EdgeInsets.all(12),
               decoration: !providerTheme.isDarkMode()
                   ? BoxDecoration(
                       color: AppColors.whiteColor,
@@ -86,7 +87,7 @@ class _TaskListItemState extends State<TaskListItem> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Container(
-                        margin: EdgeInsets.all(12),
+                        margin: const EdgeInsets.all(12),
                         height: height * 0.1,
                         width: 4,
                         color: widget.task.isDone
@@ -144,7 +145,7 @@ class _TaskListItemState extends State<TaskListItem> {
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(12),
                                     color: AppColors.primaryColor),
-                                child: Icon(
+                                child: const Icon(
                                   Icons.check,
                                   color: AppColors.whiteColor,
                                   size: 35,

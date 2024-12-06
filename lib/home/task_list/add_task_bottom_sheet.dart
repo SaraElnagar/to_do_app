@@ -26,7 +26,7 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
     return SingleChildScrollView(
       child: !providerTheme.isDarkMode()
           ? Container(
-              margin: EdgeInsets.all(12),
+              margin: const EdgeInsets.all(12),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
@@ -54,11 +54,11 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
                             decoration: InputDecoration(
                                 hintText: AppLocalizations.of(context)!
                                     .enter_task_title,
-                                focusedBorder: UnderlineInputBorder(
+                                focusedBorder: const UnderlineInputBorder(
                                     borderSide: BorderSide(
                                         color: AppColors.greyColor))),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 15,
                           ),
                           TextFormField(
@@ -75,7 +75,7 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
                             decoration: InputDecoration(
                                 hintText: AppLocalizations.of(context)!
                                     .enter_description_title,
-                                focusedBorder: UnderlineInputBorder(
+                                focusedBorder: const UnderlineInputBorder(
                                     borderSide: BorderSide(
                                         color: AppColors.greyColor))),
                             maxLines: 4,
@@ -104,13 +104,13 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
                             onPressed: () {
                               addTask();
                             },
-                            child: Text(
-                              AppLocalizations.of(context)!.add,
-                              style: Theme.of(context).textTheme.titleLarge,
-                            ),
                             style: ButtonStyle(
                               backgroundColor: WidgetStateProperty.all(
                                   AppColors.primaryColor),
+                            ),
+                            child: Text(
+                              AppLocalizations.of(context)!.add,
+                              style: Theme.of(context).textTheme.titleLarge,
                             ),
                           )
                         ],
@@ -120,7 +120,7 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
           : Container(
               color: AppColors.blackColor,
               child: Container(
-                  margin: EdgeInsets.all(12),
+                  margin: const EdgeInsets.all(12),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
@@ -149,15 +149,15 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
                                   title = text;
                                 },
                                 decoration: InputDecoration(
-                                    hintStyle:
-                                        TextStyle(color: AppColors.darkGrey),
-                                    focusedBorder: UnderlineInputBorder(
+                                    hintStyle: const TextStyle(
+                                        color: AppColors.darkGrey),
+                                    focusedBorder: const UnderlineInputBorder(
                                         borderSide: BorderSide(
                                             color: AppColors.darkGrey)),
                                     hintText: AppLocalizations.of(context)!
                                         .enter_task_title),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 15,
                               ),
                               TextFormField(
@@ -172,9 +172,9 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
                                   description = text;
                                 },
                                 decoration: InputDecoration(
-                                    hintStyle:
-                                        TextStyle(color: AppColors.darkGrey),
-                                    focusedBorder: UnderlineInputBorder(
+                                    hintStyle: const TextStyle(
+                                        color: AppColors.darkGrey),
+                                    focusedBorder: const UnderlineInputBorder(
                                         borderSide: BorderSide(
                                             color: AppColors.darkGrey)),
                                     hintText: AppLocalizations.of(context)!
@@ -233,9 +233,9 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
       /// add task
       Task task =
           Task(title: title, description: description, dateTime: selectedDate);
-      FirebaseUtils.addTaskToFireStore(task).timeout(Duration(seconds: 1),
+      FirebaseUtils.addTaskToFireStore(task).timeout(const Duration(seconds: 1),
           onTimeout: () {
-        print("task added successfully");
+        // print("task added successfully");
         listProvider.getAllTasksFromFireStore();
 
         /// refresh tasks
@@ -249,7 +249,7 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
         context: context,
         initialDate: DateTime.now(),
         firstDate: DateTime.now(),
-        lastDate: DateTime.now().add(Duration(days: 365)));
+        lastDate: DateTime.now().add(const Duration(days: 365)));
     // if (chosenDate != null) {
     //   selectedDate = chosenDate;
     // }

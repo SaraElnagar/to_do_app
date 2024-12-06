@@ -31,6 +31,7 @@ class FirebaseUtils {
     return getTasksCollection().doc(task.id).delete();
   }
 
+  /// update task 'isDone'
   static Future<void> updateTaskToFireStoreIsDone(Task task) {
     return getTasksCollection().doc(task.id).update({'isDone': task.isDone});
   }

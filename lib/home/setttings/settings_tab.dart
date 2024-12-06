@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
 import 'package:to_do_app/app_colors.dart';
 import 'package:to_do_app/home/setttings/language_bottom_sheet.dart';
 import 'package:to_do_app/home/setttings/theme_bottom_sheet.dart';
-import '../../providers/app_config_provider_theme.dart';
+
 import '../../providers/app_config_provider.dart';
-import 'package:provider/provider.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import '../../providers/app_config_provider_theme.dart';
 
 class SettingsTab extends StatefulWidget {
   @override
@@ -18,15 +19,15 @@ class _SettingsTabState extends State<SettingsTab> {
     var providerLanguage = Provider.of<AppConfigProvider>(context);
     var providerTheme = Provider.of<AppConfigProviderTheme>(context);
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+      margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(AppLocalizations.of(context)!.language,
               style: Theme.of(context).textTheme.titleMedium),
           Container(
-            margin: EdgeInsets.symmetric(vertical: 15, horizontal: 15),
-            padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+            margin: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+            padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
             decoration: !providerTheme.isDarkMode()
                 ? BoxDecoration(
                     color: AppColors.whiteColor,
@@ -47,7 +48,7 @@ class _SettingsTabState extends State<SettingsTab> {
                           : AppLocalizations.of(context)!.arabic,
                       style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                           fontSize: 15, color: AppColors.primaryColor)),
-                  Icon(
+                  const Icon(
                     Icons.keyboard_arrow_down,
                     color: AppColors.primaryColor,
                   ),
@@ -55,14 +56,14 @@ class _SettingsTabState extends State<SettingsTab> {
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 15,
           ),
           Text(AppLocalizations.of(context)!.mode,
               style: Theme.of(context).textTheme.titleMedium),
           Container(
-            margin: EdgeInsets.symmetric(vertical: 15, horizontal: 15),
-            padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+            margin: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+            padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
             decoration: !providerTheme.isDarkMode()
                 ? BoxDecoration(
                     color: AppColors.whiteColor,
@@ -83,7 +84,7 @@ class _SettingsTabState extends State<SettingsTab> {
                           : AppLocalizations.of(context)!.dark,
                       style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                           fontSize: 15, color: AppColors.primaryColor)),
-                  Icon(
+                  const Icon(
                     Icons.keyboard_arrow_down,
                     color: AppColors.primaryColor,
                   ),

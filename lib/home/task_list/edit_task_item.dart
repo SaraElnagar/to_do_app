@@ -33,7 +33,7 @@ class _EditTaskItemState extends State<EditTaskItem> {
     listProvider = Provider.of<ListProvider>(context);
 
     return Scaffold(
-      resizeToAvoidBottomInset: false,
+      // resizeToAvoidBottomInset: false,
       appBar: AppBar(
           title: !providerTheme.isDarkMode()
               ? Text(AppLocalizations.of(context)!.app_title,
@@ -60,8 +60,10 @@ class _EditTaskItemState extends State<EditTaskItem> {
           Expanded(
             child: SingleChildScrollView(
               child: Container(
-                margin: EdgeInsets.symmetric(vertical: 25, horizontal: 30),
-                padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+                margin:
+                    const EdgeInsets.symmetric(vertical: 25, horizontal: 30),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(25),
                   color: providerTheme.isDarkMode()
@@ -97,34 +99,35 @@ class _EditTaskItemState extends State<EditTaskItem> {
                               title = text;
                             },
                             decoration: InputDecoration(
-                              hintStyle: TextStyle(color: AppColors.lightGrey),
+                              hintStyle:
+                                  const TextStyle(color: AppColors.lightGrey),
                               hintText: AppLocalizations.of(context)!
                                   .enter_task_title,
                               enabledBorder: !providerTheme.isDarkMode()
-                                  ? UnderlineInputBorder(
+                                  ? const UnderlineInputBorder(
                                       borderSide: BorderSide(
                                         color: AppColors.darkGrey,
                                       ),
                                     )
-                                  : UnderlineInputBorder(
+                                  : const UnderlineInputBorder(
                                       borderSide: BorderSide(
                                         color: AppColors.primaryColor,
                                       ),
                                     ),
                               focusedBorder: !providerTheme.isDarkMode()
-                                  ? UnderlineInputBorder(
+                                  ? const UnderlineInputBorder(
                                       borderSide: BorderSide(
                                         color: AppColors.darkGrey,
                                       ),
                                     )
-                                  : UnderlineInputBorder(
+                                  : const UnderlineInputBorder(
                                       borderSide: BorderSide(
                                         color: AppColors.primaryColor,
                                       ),
                                     ),
                             ),
                           ),
-                          SizedBox(height: 15),
+                          const SizedBox(height: 15),
                           TextFormField(
                             initialValue: description,
                             validator: (text) {
@@ -138,27 +141,28 @@ class _EditTaskItemState extends State<EditTaskItem> {
                               description = text;
                             },
                             decoration: InputDecoration(
-                              hintStyle: TextStyle(color: AppColors.lightGrey),
+                              hintStyle:
+                                  const TextStyle(color: AppColors.lightGrey),
                               hintText: AppLocalizations.of(context)!
                                   .enter_description_title,
                               enabledBorder: !providerTheme.isDarkMode()
-                                  ? UnderlineInputBorder(
+                                  ? const UnderlineInputBorder(
                                       borderSide: BorderSide(
                                         color: AppColors.darkGrey,
                                       ),
                                     )
-                                  : UnderlineInputBorder(
+                                  : const UnderlineInputBorder(
                                       borderSide: BorderSide(
                                         color: AppColors.primaryColor,
                                       ),
                                     ),
                               focusedBorder: !providerTheme.isDarkMode()
-                                  ? UnderlineInputBorder(
+                                  ? const UnderlineInputBorder(
                                       borderSide: BorderSide(
                                         color: AppColors.darkGrey,
                                       ),
                                     )
-                                  : UnderlineInputBorder(
+                                  : const UnderlineInputBorder(
                                       borderSide: BorderSide(
                                         color: AppColors.primaryColor,
                                       ),
@@ -185,9 +189,9 @@ class _EditTaskItemState extends State<EditTaskItem> {
                             ),
                           ),
                           Container(
-                            padding: EdgeInsets.symmetric(
+                            padding: const EdgeInsets.symmetric(
                                 vertical: 40, horizontal: 40),
-                            margin: EdgeInsets.only(top: 10),
+                            margin: const EdgeInsets.only(top: 10),
                             child: ElevatedButton(
                               onPressed: () {
                                 updateTaskToFireStore();
@@ -222,8 +226,8 @@ class _EditTaskItemState extends State<EditTaskItem> {
         "title": title,
         "description": description,
         "dateTime": selectedDate,
-      }).timeout(Duration(seconds: 1), onTimeout: () {
-        print("Task updated successfully");
+      }).timeout(const Duration(seconds: 1), onTimeout: () {
+        // print("Task updated successfully");
         listProvider.getAllTasksFromFireStore();
         Navigator.pop(context);
       });
@@ -235,7 +239,7 @@ class _EditTaskItemState extends State<EditTaskItem> {
       context: context,
       initialDate: DateTime.now(),
       firstDate: DateTime.now(),
-      lastDate: DateTime.now().add(Duration(days: 365)),
+      lastDate: DateTime.now().add(const Duration(days: 365)),
     );
     // if (chosenDate != null) {
     //   selectedDate = chosenDate;
